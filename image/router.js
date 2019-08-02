@@ -10,4 +10,10 @@ router.get("/image", (req, res, next) =>
     .catch(error => next(error))
 );
 
+router.post("/image", (req, res, next) => {
+  Image.create(req.body)
+    .then(name => res.json(name))
+    .catch(next);
+});
+
 module.exports = router;
